@@ -1,0 +1,43 @@
+@using MyCRUDelicious.Models
+@model Dish
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Add a Dish";
+}
+<partial name="NavPartial"></partial>
+<h1>Add a New Dish</h1>
+<form asp-action="AddDish" asp-controller="Home" style="display: inline-block" method="post">
+    <div class="form-group">
+        <span class="text-danger" asp-validation-for="ChefName"></span>
+        <label asp-for="ChefName" class="form-label">Chef Name</label>
+        <input type="text" class="form-control" asp-for="ChefName">
+    </div>
+    <div class="form-group">
+        <span class="text-danger" asp-validation-for="DishName"></span>
+        <label asp-for="DishName" class="form-label">Name of Dish</label>
+        <input type="text" class="form-control" asp-for="DishName">
+    </div>
+    <div class="form-group">
+        <span class="text-danger" asp-validation-for="Calories"></span>
+        <label asp-for="Calories" class="form-label"># of Calories</label>
+        <input type="number" class="form-control" asp-for="Calories">
+    </div>
+    <div class="form-group">
+        <span class="text-danger" asp-validation-for="Tastiness"></span>
+        <label asp-for="Tastiness" class="form-label">Tastiness</label>
+        <select asp-for="Tastiness" class="form-select">
+            <option selected>Select a Rating</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <span class="text-danger" asp-validation-for="Description"></span>
+        <label asp-for="Description" class="form-label">Description</label>
+        <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Dish!</button>
+  </form>  

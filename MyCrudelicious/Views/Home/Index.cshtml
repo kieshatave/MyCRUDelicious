@@ -1,0 +1,25 @@
+﻿@using MyCRUDelicious.Models
+@model Dish
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to CRUDelicious</h1>
+    <a href="newDish">Add a Dish</a>
+    <h2>Check out some recent dishes!</h2>
+    <table>
+        <tr>
+            <th>Dish</th>
+            <th>Chef</th>
+        </tr>
+        @foreach(Dish food in ViewBag.AllDishes)
+        {
+            <tr>
+                <td><a href="/dish/@food.DishId">@food.DishName</a></td>
+                <td>@food.ChefName</td>
+            </tr>
+        }
+    </table>
+</div>

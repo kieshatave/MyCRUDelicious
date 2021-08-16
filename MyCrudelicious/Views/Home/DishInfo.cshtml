@@ -1,0 +1,18 @@
+@using MyCRUDelicious.Models
+@model Dish
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Dish Info";
+}
+<partial name="NavPartial"></partial>
+<h1>@Model.DishName</h1>
+<h1>@Model.ChefName</h1>
+<hr>
+<p>@Model.Description</p>
+<p><span>Calories: </span>@Model.Calories</p>
+<p><span>Tastiness: </span>@Model.Tastiness</p>
+
+<div class="d-grid gap-2 d-md-block">
+    <button class="btn btn-outline-danger" type="button"><a href="/dish/@Model.DishId/delete">Delete</a></button>
+    <button class="btn btn-outline-dark" type="button"> <a href="/dish/@Model.DishId/edit">Edit</a> </button>
+</div>
